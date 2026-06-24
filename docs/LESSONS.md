@@ -1,0 +1,33 @@
+# Bitácora de Lecciones Aprendidas
+
+> Registro de errores, sorpresas y decisiones no obvias surgidas durante el
+> desarrollo. Cada entrada: **síntoma → causa → solución → cómo evitarlo**.
+> Se añade una entrada cada vez que algo falla o se aprende algo reutilizable.
+
+_Última actualización: 2026-06-24_
+
+---
+
+## L-001 · El launcher `py` está roto en esta máquina
+- **Síntoma:** `py --version` → "El sistema no puede encontrar el archivo especificado".
+- **Causa:** el launcher apunta a una ruta de Python inexistente.
+- **Solución:** usar `python` (Python 3.13.14) o, dentro del proyecto, el
+  intérprete del venv: `.\.venv\Scripts\python.exe`.
+- **Evitar:** no invocar `py` en scripts ni comandos del proyecto.
+
+## L-002 · `python -c "..."` multilínea falla en PowerShell
+- **Síntoma:** `SyntaxError: '(' was never closed` al pasar código con comillas
+  y `\` de continuación dentro de `python -c "..."`.
+- **Causa:** PowerShell y el parser de Python pelean por el escape de comillas.
+- **Solución:** usar un here-string canalizado —
+  `@'`…código…`'@ | .\.venv\Scripts\python.exe -` — o un archivo `.py` temporal.
+- **Evitar:** para cualquier script Python de más de una línea, archivo o here-string.
+
+## L-003 · `CREATE TABLE IF NOT EXISTS` no aplica cambios de columnas
+- **Síntoma:** tras editar una tabla en `schema.sql` y re-ejecutar `init_db`,
+  la tabla seguía con la estructura vieja.
+- **Causa:** `IF NOT EXISTS` omite la tabla si ya existe; no la altera.
+- **Solución:** con la BD aún vacía, borrar `data/laboratorio.db` y regenerar.
+  Cuando ya haya datos reales, se necesitará una **migración** explícita.
+- **Evitar:** ante cambios de esquema, decidir entre "borrar+regenerar" (sin
+  datos) o "migración" (con datos) — nunca asumir que `init_db` migra.

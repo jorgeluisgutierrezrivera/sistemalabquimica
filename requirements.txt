@@ -1,0 +1,20 @@
+# ============================================================
+# Sistema de Control de Insumos - Laboratorio de Química (UAJMS)
+# Dependencias del proyecto (Python 3.13)
+# ============================================================
+
+# --- Backend / API ---
+fastapi==0.115.6          # Framework web (async, validación, /docs automático)
+uvicorn[standard]==0.34.0 # Servidor ASGI para servir la API en la LAN
+pydantic==2.10.4          # Validación de datos y esquemas (incluido por FastAPI)
+python-multipart==0.0.20  # Manejo de formularios / multipart en endpoints
+PyJWT==2.10.1             # Tokens JWT para la sesión (Python puro, empaqueta limpio)
+
+# --- Desarrollo / Pruebas (no requeridas en producción) ---
+pytest==9.1.1             # Framework de pruebas
+httpx==0.28.1             # Cliente HTTP usado por TestClient de FastAPI
+
+# --- Empaquetado (build del .exe autocontenido) ---
+# Se usa solo al generar el ejecutable final. Instalar con:
+#   pip install pyinstaller
+# pyinstaller==6.11.1

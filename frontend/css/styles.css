@@ -1,0 +1,111 @@
+/*
+ * styles.css - estilos base (bootstrap, Mobile-First).
+ * El sistema de diseño definitivo se construirá por módulo (ciclo SDD).
+ */
+
+:root {
+  --color-primario: #0d6efd;
+  --color-texto: #1c1c1e;
+  --color-fondo: #f7f7f8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+}
+
+#app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.25rem;
+  color: var(--color-primario);
+}
+
+/* --- Barra superior con sesión --- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: #fff;
+  border-bottom: 1px solid #e5e5ea;
+  font-size: 0.85rem;
+}
+
+/* --- Login --- */
+.login-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.subtitulo {
+  margin-top: -0.5rem;
+  color: #6b6b70;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-align: left;
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.card label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.card input {
+  padding: 0.7rem;
+  font-size: 1rem;
+  border: 1px solid #d0d0d5;
+  border-radius: 8px;
+}
+
+.error {
+  color: #d9534f;
+  font-size: 0.85rem;
+  min-height: 1.1rem;
+  margin: 0.25rem 0 0;
+}
+
+.btn-primario {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-primario);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-secundario {
+  padding: 0.35rem 0.8rem;
+  font-size: 0.8rem;
+  color: var(--color-primario);
+  background: transparent;
+  border: 1px solid var(--color-primario);
+  border-radius: 6px;
+  cursor: pointer;
+}
