@@ -12,8 +12,8 @@ _Última actualización: 2026-06-24_
 
 | # | Módulo | Paso 1 (Spec) | Paso 2 (Code) | Paso 3 (Test) | Paso 4 (Git) | Estado |
 |---|--------|:---:|:---:|:---:|:---:|--------|
-| 0 | Entorno + BD (bootstrap) | — | ✅ | ✅ | ☐ | Listo (Git pendiente) |
-| 1 | **Autenticación** | ✅ | ✅ | ✅ | ▶ | Listo; Paso 4 (Git) |
+| 0 | Entorno + BD (bootstrap) | — | ✅ | ✅ | ✅ | ✅ Versionado |
+| 1 | **Autenticación** | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
 | 2 | Inventario Materiales + catálogo Reactivos | ☐ | ☐ | ☐ | ☐ | Pendiente |
 | 3 | Catálogos Base (docentes/materias/ambientes) | ☐ | ☐ | ☐ | ☐ | Pendiente |
 | 4 | Recetas Maestras | ☐ | ☐ | ☐ | ☐ | Pendiente |
@@ -37,7 +37,10 @@ _Última actualización: 2026-06-24_
 - [x] Script seed `crear_admin.py`
 - [x] Prueba de humo interna
 - [x] **Paso 3:** suite `test_auth.py` con pytest — 8/8 OK
-- [ ] **Paso 4:** `git init` + `.gitignore` + primer commit
+- [x] **Paso 4:** repo en GitHub (`origin/main`), commits `ab3cabf` + `195a23e`
+
+> **Módulo 1 CERRADO (2026-06-24).** Siguiente: Módulo 2 — empezar por su
+> `docs/modulos/02-*.md` (Paso 1).
 
 ---
 

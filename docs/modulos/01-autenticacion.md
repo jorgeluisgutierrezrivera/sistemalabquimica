@@ -1,8 +1,8 @@
 # Módulo 1 — Autenticación
 
-- **Estado:** ▶ En curso (Paso 2 entregado; Paso 3 pendiente)
+- **Estado:** ✅ Completo (4 pasos SDD cerrados)
 - **Fecha inicio:** 2026-06-24
-- **Fecha cierre:** —
+- **Fecha cierre:** 2026-06-24
 - **Depende de:** Entorno + BD (bootstrap). Es el módulo **fundacional**: el
   resto de módulos protegerá sus endpoints con su dependencia de sesión.
 
@@ -82,7 +82,9 @@ timestamps inmutables, Regla 2.G); solo regula quién entra.
 - [x] **Paso 1 — Propuesta (Spec):** aprobada el 2026-06-24
 - [x] **Paso 2 — Código:** entregado el 2026-06-24 (prueba de humo OK)
 - [x] **Paso 3 — Pruebas:** `backend/tests/test_auth.py` — **8/8 OK** (2026-06-24)
-- [ ] **Paso 4 — Git:** pendiente (este módulo inicializa el repositorio)
+- [x] **Paso 4 — Git:** repo inicializado y publicado en GitHub (2026-06-24).
+  Commits `ab3cabf` (bootstrap) y `195a23e` (feat auth); remoto `origin/main`
+  en https://github.com/jorgeluisgutierrezrivera/sistemalabquimica.git
 
 ### Resultado de pruebas (Paso 3)
 Suite con pytest + TestClient sobre BD temporal aislada (`INSUMOS_DB_PATH`):
