@@ -14,7 +14,7 @@ _Última actualización: 2026-06-25_
 |---|--------|:---:|:---:|:---:|:---:|--------|
 | 0 | Entorno + BD (bootstrap) | — | ✅ | ✅ | ✅ | ✅ Versionado |
 | 1 | **Autenticación** | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
-| 2 | Inventario Materiales + catálogo Reactivos | ✅ | ✅ | ✅ | ☐ | ▶ Paso 4 (Git) |
+| 2 | Inventario Materiales + catálogo Reactivos | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
 | 3 | Catálogos Base (docentes/materias/ambientes) | ☐ | ☐ | ☐ | ☐ | Pendiente |
 | 4 | Recetas Maestras | ☐ | ☐ | ☐ | ☐ | Pendiente |
 | 5 | Carrito (armado desde receta) | ☐ | ☐ | ☐ | ☐ | Pendiente |
@@ -34,10 +34,10 @@ _Última actualización: 2026-06-25_
 - [x] **Paso 2:** modelos + servicios (reactivos/materiales) + router + `main.py`
 - [x] **Paso 2:** frontend `inventario.html` + `js/inventario.js` + estilos + navegación
 - [x] **Paso 3:** suite `test_inventario.py` — 13/13 OK (total 21/21)
-- [ ] **Paso 4:** commit + push a GitHub  ← *aquí estamos*
+- [x] **Paso 4:** commit `ba5772e` + push a `origin/main`
 
-> **Módulo 1 CERRADO (2026-06-24).** Módulo 2 con Pasos 1–3 cerrados
-> (2026-06-25); falta el commit (Paso 4). Ver `docs/modulos/02-inventario.md`.
+> **Módulo 2 CERRADO (2026-06-25).** Siguiente: Módulo 3 — Catálogos Base
+> (docentes/materias/ambientes); empezar por su `docs/modulos/03-*.md` (Paso 1).
 
 ---
 
