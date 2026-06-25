@@ -4,7 +4,7 @@
 > Propuesta → Código → Pruebas → Git). Se actualiza al cerrar cada paso.
 > Convenciones: ☐ pendiente · ▶ en curso · ✅ hecho · ⏸ en pausa.
 
-_Última actualización: 2026-06-24_
+_Última actualización: 2026-06-25_
 
 ---
 
@@ -14,7 +14,7 @@ _Última actualización: 2026-06-24_
 |---|--------|:---:|:---:|:---:|:---:|--------|
 | 0 | Entorno + BD (bootstrap) | — | ✅ | ✅ | ✅ | ✅ Versionado |
 | 1 | **Autenticación** | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
-| 2 | Inventario Materiales + catálogo Reactivos | ☐ | ☐ | ☐ | ☐ | Pendiente |
+| 2 | Inventario Materiales + catálogo Reactivos | ✅ | ✅ | ✅ | ☐ | ▶ Paso 4 (Git) |
 | 3 | Catálogos Base (docentes/materias/ambientes) | ☐ | ☐ | ☐ | ☐ | Pendiente |
 | 4 | Recetas Maestras | ☐ | ☐ | ☐ | ☐ | Pendiente |
 | 5 | Carrito (armado desde receta) | ☐ | ☐ | ☐ | ☐ | Pendiente |
@@ -28,19 +28,24 @@ _Última actualización: 2026-06-24_
 
 ---
 
-## Tareas activas (Módulo 1 — Autenticación)
+## Tareas activas (Módulo 2 — Inventario)
 
-- [x] Definir esquema `usuarios` y aplicarlo a `schema.sql`
-- [x] `security.py` (pbkdf2 + JWT)
-- [x] Servicio, modelos, router y dependencia de auth
-- [x] Frontend: login + guarda de sesión
-- [x] Script seed `crear_admin.py`
-- [x] Prueba de humo interna
-- [x] **Paso 3:** suite `test_auth.py` con pytest — 8/8 OK
-- [x] **Paso 4:** repo en GitHub (`origin/main`), commits `ab3cabf` + `195a23e`
+- [x] **Paso 1:** propuesta en `docs/modulos/02-inventario.md` + `[APROBADO]`
+- [x] **Paso 2:** modelos + servicios (reactivos/materiales) + router + `main.py`
+- [x] **Paso 2:** frontend `inventario.html` + `js/inventario.js` + estilos + navegación
+- [x] **Paso 3:** suite `test_inventario.py` — 13/13 OK (total 21/21)
+- [ ] **Paso 4:** commit + push a GitHub  ← *aquí estamos*
 
-> **Módulo 1 CERRADO (2026-06-24).** Siguiente: Módulo 2 — empezar por su
-> `docs/modulos/02-*.md` (Paso 1).
+> **Módulo 1 CERRADO (2026-06-24).** Módulo 2 con Pasos 1–3 cerrados
+> (2026-06-25); falta el commit (Paso 4). Ver `docs/modulos/02-inventario.md`.
+
+---
+
+## Historial — Módulo 1 (Autenticación) ✅ CERRADO 2026-06-24
+
+- [x] Esquema `usuarios`, `security.py` (pbkdf2+JWT), servicios/modelos/router
+- [x] Frontend login + seed `crear_admin.py` + suite `test_auth.py` (8/8 OK)
+- [x] Repo en GitHub (`origin/main`), commits `ab3cabf` + `195a23e`
 
 ---
 

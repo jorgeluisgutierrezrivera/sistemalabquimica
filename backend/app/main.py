@@ -16,7 +16,7 @@ from fastapi.staticfiles import StaticFiles
 
 from . import __version__
 from .config import FRONTEND_DIR
-from .routers import auth
+from .routers import auth, inventario
 
 app = FastAPI(
     title="Sistema de Control de Insumos - Laboratorio de Química (UAJMS)",
@@ -34,6 +34,7 @@ def health() -> JSONResponse:
 
 # --- Routers de la API (se irán sumando módulo por módulo en el SDD) ---
 app.include_router(auth.router)
+app.include_router(inventario.router)  # Módulo 2 — Inventario
 
 # --- Frontend (PWA estática) ---
 # Se monta al final, en la raíz: las rutas /api/* tienen prioridad y el resto

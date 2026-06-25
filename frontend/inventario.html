@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d6efd" />
+  <link rel="manifest" href="manifest.json" />
+  <title>Inventario - Insumos QMC</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="btn-secundario" aria-label="Volver">‹ Inicio</a>
+    <span id="sesion-info">Inventario</span>
+    <button id="logout" class="btn-secundario" type="button">Salir</button>
+  </header>
+
+  <main id="app" class="vista-ancha">
+    <h1>Inventario</h1>
+
+    <!-- Pestañas Materiales / Reactivos -->
+    <nav class="tabs" role="tablist">
+      <button class="tab activa" data-tab="materiales" role="tab" type="button">Materiales</button>
+      <button class="tab" data-tab="reactivos" role="tab" type="button">Reactivos</button>
+    </nav>
+
+    <div class="barra-acciones">
+      <input id="buscador" class="input-busqueda" type="search" placeholder="Buscar por nombre o código…" />
+      <button id="btn-nuevo" class="btn-primario btn-compacto" type="button">+ Nuevo</button>
+    </div>
+
+    <p id="mensaje" class="mensaje" role="status"></p>
+
+    <ul id="lista" class="lista-insumos"></ul>
+  </main>
+
+  <!-- Modal de alta/edición -->
+  <div id="modal" class="modal oculto" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <h2 id="modal-titulo">Nuevo</h2>
+      <form id="form" class="card">
+        <input type="hidden" id="f-id" />
+
+        <label for="f-nombre">Nombre *</label>
+        <input id="f-nombre" type="text" maxlength="120" required />
+
+        <label for="f-codigo">Código</label>
+        <input id="f-codigo" type="text" maxlength="60" />
+
+        <!-- Solo materiales -->
+        <div class="campo-material">
+          <label for="f-capacidad">Capacidad</label>
+          <input id="f-capacidad" type="text" maxlength="60" placeholder="Ej: 100 mL" />
+
+          <label for="f-total">Cantidad total</label>
+          <input id="f-total" type="number" min="0" step="1" value="0" />
+          <small id="f-en-uso-info" class="ayuda"></small>
+        </div>
+
+        <!-- Solo reactivos -->
+        <div class="campo-reactivo">
+          <label for="f-unidad">Unidad base</label>
+          <input id="f-unidad" type="text" maxlength="30" placeholder="Ej: mL, g" />
+        </div>
+
+        <p id="form-error" class="error"></p>
+
+        <div class="modal-botones">
+          <button type="button" id="btn-cancelar" class="btn-secundario">Cancelar</button>
+          <button type="submit" class="btn-primario btn-compacto">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/inventario.js"></script>
+</body>
+</html>

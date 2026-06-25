@@ -108,4 +108,206 @@ h1 {
   border: 1px solid var(--color-primario);
   border-radius: 6px;
   cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Menú de módulos (página principal) */
+.menu-modulos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.menu-modulos .btn-primario {
+  margin-top: 0;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* ============================================================
+   Módulo 2 — Inventario
+   ============================================================ */
+.vista-ancha {
+  max-width: 720px;
+  text-align: left;
+}
+
+/* Pestañas Materiales / Reactivos */
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  margin: 0.5rem 0 1rem;
+  border-bottom: 1px solid #e5e5ea;
+}
+
+.tab {
+  flex: 1;
+  padding: 0.6rem 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #6b6b70;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+}
+
+.tab.activa {
+  color: var(--color-primario);
+  border-bottom-color: var(--color-primario);
+}
+
+/* Barra de búsqueda + nuevo */
+.barra-acciones {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.input-busqueda {
+  flex: 1;
+  padding: 0.6rem 0.7rem;
+  font-size: 0.95rem;
+  border: 1px solid #d0d0d5;
+  border-radius: 8px;
+}
+
+.btn-compacto {
+  margin-top: 0;
+  white-space: nowrap;
+}
+
+.mensaje {
+  min-height: 1.1rem;
+  margin: 0.25rem 0;
+  font-size: 0.85rem;
+  color: #6b6b70;
+}
+
+.mensaje-error {
+  color: #d9534f;
+}
+
+/* Lista de insumos */
+.lista-insumos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.item-insumo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background: #fff;
+  padding: 0.7rem 0.85rem;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+}
+
+.item-datos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.item-datos strong {
+  font-size: 0.95rem;
+}
+
+.item-datos .cod {
+  color: var(--color-primario);
+  font-size: 0.8rem;
+}
+
+.item-datos .stock {
+  font-size: 0.8rem;
+  color: #6b6b70;
+}
+
+.item-datos .disp.agotado {
+  color: #d9534f;
+}
+
+.item-acciones {
+  display: flex;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.btn-icono {
+  padding: 0.3rem 0.55rem;
+  font-size: 0.75rem;
+}
+
+.btn-peligro {
+  color: #d9534f;
+  border-color: #d9534f;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 50;
+}
+
+.modal.oculto {
+  display: none;
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.25rem;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-card h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: var(--color-primario);
+}
+
+.modal-card .card {
+  box-shadow: none;
+  padding: 0;
+}
+
+.modal-botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.ayuda {
+  font-size: 0.78rem;
+  color: #6b6b70;
+}
+
+/* Mostrar/ocultar campos según el tipo editado */
+.campo-material,
+.campo-reactivo {
+  display: contents;
+}
+
+.modal.modo-material .campo-reactivo,
+.modal.modo-reactivo .campo-material {
+  display: none;
 }
