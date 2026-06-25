@@ -311,3 +311,12 @@ h1 {
 .modal.modo-reactivo .campo-material {
   display: none;
 }
+
+/* Catálogos (Módulo 3): campos solo de materia */
+.campo-materia {
+  display: contents;
+}
+
+.modal:not(.modo-materia) .campo-materia {
+  display: none;
+}

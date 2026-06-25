@@ -4,7 +4,7 @@
 > desarrollo. Cada entrada: **síntoma → causa → solución → cómo evitarlo**.
 > Se añade una entrada cada vez que algo falla o se aprende algo reutilizable.
 
-_Última actualización: 2026-06-24_
+_Última actualización: 2026-06-25_
 
 ---
 
@@ -31,3 +31,14 @@ _Última actualización: 2026-06-24_
   Cuando ya haya datos reales, se necesitará una **migración** explícita.
 - **Evitar:** ante cambios de esquema, decidir entre "borrar+regenerar" (sin
   datos) o "migración" (con datos) — nunca asumir que `init_db` migra.
+
+## L-004 · `LIKE COLLATE NOCASE` en SQLite no ignora acentos
+- **Síntoma:** buscar `organica` no encontraba la materia "Química Orgánica I"
+  (una prueba del M3 falló).
+- **Causa:** el `NOCASE` de SQLite solo pliega mayúsculas/minúsculas ASCII; las
+  vocales con tilde (á, é, í…) se tratan como caracteres distintos.
+- **Solución (por ahora):** la búsqueda funciona case-insensitive pero es
+  sensible a acentos; en pruebas se filtra por texto sin tildes (ej. la sigla).
+- **Evitar / mejora futura:** si se necesita búsqueda insensible a acentos,
+  registrar una función de normalización en la conexión SQLite (o guardar una
+  columna "nombre_normalizado" sin tildes) y filtrar sobre ella.

@@ -15,7 +15,7 @@ _Última actualización: 2026-06-25_
 | 0 | Entorno + BD (bootstrap) | — | ✅ | ✅ | ✅ | ✅ Versionado |
 | 1 | **Autenticación** | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
 | 2 | Inventario Materiales + catálogo Reactivos | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
-| 3 | Catálogos Base (docentes/materias/ambientes) | ☐ | ☐ | ☐ | ☐ | Pendiente |
+| 3 | Catálogos Base (docentes/materias/ambientes) | ✅ | ✅ | ✅ | ☐ | ▶ Paso 4 (Git) |
 | 4 | Recetas Maestras | ☐ | ☐ | ☐ | ☐ | Pendiente |
 | 5 | Carrito (armado desde receta) | ☐ | ☐ | ☐ | ☐ | Pendiente |
 | 6 | Estados y dashboard | ☐ | ☐ | ☐ | ☐ | Pendiente |
@@ -28,16 +28,25 @@ _Última actualización: 2026-06-25_
 
 ---
 
-## Tareas activas (Módulo 2 — Inventario)
+## Tareas activas (Módulo 3 — Catálogos Base)
 
-- [x] **Paso 1:** propuesta en `docs/modulos/02-inventario.md` + `[APROBADO]`
-- [x] **Paso 2:** modelos + servicios (reactivos/materiales) + router + `main.py`
-- [x] **Paso 2:** frontend `inventario.html` + `js/inventario.js` + estilos + navegación
-- [x] **Paso 3:** suite `test_inventario.py` — 13/13 OK (total 21/21)
-- [x] **Paso 4:** commit `ba5772e` + push a `origin/main`
+- [x] **Paso 1:** propuesta en `docs/modulos/03-catalogos-base.md` + `[APROBADO]` (`horarios_semestre` diferido)
+- [x] **Paso 2:** modelos + servicios (docentes/materias/ambientes) + router + `main.py`
+- [x] **Paso 2:** frontend `catalogos.html` + `js/catalogos.js` + estilos + navegación
+- [x] **Paso 3:** suite `test_catalogos.py` — 14/14 OK (total 35/35)
+- [ ] **Paso 4:** commit + push a GitHub  ← *aquí estamos*
 
-> **Módulo 2 CERRADO (2026-06-25).** Siguiente: Módulo 3 — Catálogos Base
-> (docentes/materias/ambientes); empezar por su `docs/modulos/03-*.md` (Paso 1).
+> **Módulo 2 CERRADO (2026-06-25).** Módulo 3 con Pasos 1–3 cerrados
+> (2026-06-25); falta el commit (Paso 4). Ver `docs/modulos/03-catalogos-base.md`.
+
+---
+
+## Historial — Módulo 2 (Inventario) ✅ CERRADO 2026-06-25
+
+- [x] Modelos + servicios (reactivos sin stock / materiales con inventario) + router
+- [x] Frontend `inventario.html` + `js/inventario.js` con pestañas y modal
+- [x] Suite `test_inventario.py` — 13/13 OK (total 21/21)
+- [x] Commit `ba5772e` + cierre docs `756e8e4`, push a `origin/main`
 
 ---
 
