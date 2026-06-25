@@ -15,7 +15,7 @@ _Última actualización: 2026-06-25_
 | 0 | Entorno + BD (bootstrap) | — | ✅ | ✅ | ✅ | ✅ Versionado |
 | 1 | **Autenticación** | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
 | 2 | Inventario Materiales + catálogo Reactivos | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
-| 3 | Catálogos Base (docentes/materias/ambientes) | ✅ | ✅ | ✅ | ☐ | ▶ Paso 4 (Git) |
+| 3 | Catálogos Base (docentes/materias/ambientes) | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
 | 4 | Recetas Maestras | ☐ | ☐ | ☐ | ☐ | Pendiente |
 | 5 | Carrito (armado desde receta) | ☐ | ☐ | ☐ | ☐ | Pendiente |
 | 6 | Estados y dashboard | ☐ | ☐ | ☐ | ☐ | Pendiente |
@@ -34,10 +34,10 @@ _Última actualización: 2026-06-25_
 - [x] **Paso 2:** modelos + servicios (docentes/materias/ambientes) + router + `main.py`
 - [x] **Paso 2:** frontend `catalogos.html` + `js/catalogos.js` + estilos + navegación
 - [x] **Paso 3:** suite `test_catalogos.py` — 14/14 OK (total 35/35)
-- [ ] **Paso 4:** commit + push a GitHub  ← *aquí estamos*
+- [x] **Paso 4:** commit `92486a9` + push a `origin/main`
 
-> **Módulo 2 CERRADO (2026-06-25).** Módulo 3 con Pasos 1–3 cerrados
-> (2026-06-25); falta el commit (Paso 4). Ver `docs/modulos/03-catalogos-base.md`.
+> **Módulo 3 CERRADO (2026-06-25).** Siguiente: Módulo 4 — Recetas Maestras
+> (plantillas reutilizables); empezar por su `docs/modulos/04-*.md` (Paso 1).
 
 ---
 

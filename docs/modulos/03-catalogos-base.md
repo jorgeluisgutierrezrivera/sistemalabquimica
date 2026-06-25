@@ -3,9 +3,9 @@
 > Plan de trabajo (metodología SDD). Este documento es el **Paso 1 (Propuesta)**.
 > No se escribe código hasta recibir `[APROBADO]`.
 
-- **Estado:** ▶ En curso (Pasos 1–3 hechos; pendiente Paso 4 — Git)
+- **Estado:** ✅ Completo (4 pasos SDD cerrados)
 - **Fecha inicio:** 2026-06-25
-- **Fecha cierre:** —
+- **Fecha cierre:** 2026-06-25
 - **Depende de:** Módulo 1 (Autenticación — protección de endpoints). Tablas
   `docentes`, `materias`, `ambientes` ya existen en `schema.sql`.
 
@@ -133,7 +133,7 @@ Comando: `.\.venv\Scripts\python.exe -m pytest backend/tests -v`
 - [x] **Paso 1 — Propuesta (Spec):** aprobada el 2026-06-25 (`APROBADO`; `horarios_semestre` diferido)
 - [x] **Paso 2 — Código:** entregado el 2026-06-25 (backend + frontend)
 - [x] **Paso 3 — Pruebas:** `test_catalogos.py` — **14/14 OK** (suite total 35/35) el 2026-06-25
-- [ ] **Paso 4 — Git:** commit `<hash/mensaje>` el AAAA-MM-DD
+- [x] **Paso 4 — Git:** commit `92486a9` (push a `origin/main`) el 2026-06-25
 
 ### Resultado de pruebas (Paso 3)
 14 casos sobre BD temporal aislada (reusa `conftest.py`): auth (401 sin token en
