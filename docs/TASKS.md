@@ -30,14 +30,16 @@ _Última actualización: 2026-06-26_
 
 ## Tareas activas (Módulo 5 — Carrito armado desde receta)
 
-- [ ] **Paso 1:** redactar propuesta en `docs/modulos/05-carrito.md`
-- [ ] **Paso 1:** recibir `[APROBADO]` del usuario  ← *aquí estamos*
-- [ ] **Paso 2:** backend (copia de líneas de receta a detalle editable, extras)
-- [ ] **Paso 2:** frontend de armado de carrito
-- [ ] **Paso 3:** suite `test_carrito.py`
-- [ ] **Paso 4:** commit + push a GitHub
+- [x] **Paso 1:** propuesta en `docs/modulos/05-carrito.md` + `[APROBADO]` (3 decisiones recomendadas)
+- [x] **Paso 2:** backend (copia de líneas de receta a detalle editable, extras)
+- [x] **Paso 2:** frontend `carritos.html` + `js/carritos.js` + navegación
+- [x] **Paso 3:** suite `test_carrito.py` — 11/11 OK (total 56/56)
+- [ ] **Paso 4:** *(verificado: servidor + datos ficticios)* commit + push  ← *aquí estamos*
 
-> **Módulo 4 CERRADO (2026-06-26).** Siguiente: Módulo 5 (Carrito) en Paso 1.
+> **Módulo 4 CERRADO (2026-06-26).** Módulo 5 (Carrito) con Pasos 1–3 cerrados y
+> verificado funcionalmente; pendiente el commit/push (Paso 4).
+> Decisiones: inventario diferido a M6, `cantidad_grupos` numérico sin cambio de
+> esquema, armado desde receta + extras.
 
 ---
 

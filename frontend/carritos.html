@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d6efd" />
+  <link rel="manifest" href="manifest.json" />
+  <title>Carritos - Insumos QMC</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="btn-secundario" aria-label="Volver">‹ Inicio</a>
+    <span id="sesion-info">Carritos</span>
+    <button id="logout" class="btn-secundario" type="button">Salir</button>
+  </header>
+
+  <main id="app" class="vista-ancha">
+    <!-- ============ VISTA LISTA ============ -->
+    <section id="vista-lista">
+      <h1>Carritos de Insumos</h1>
+      <div class="barra-acciones">
+        <input id="buscador" class="input-busqueda" type="search" placeholder="Buscar por práctica…" />
+        <button id="btn-nuevo" class="btn-primario btn-compacto" type="button">+ Nuevo</button>
+      </div>
+      <p id="mensaje" class="mensaje" role="status"></p>
+      <ul id="lista" class="lista-insumos"></ul>
+    </section>
+
+    <!-- ============ VISTA EDITOR ============ -->
+    <section id="vista-editor" class="oculto">
+      <h1 id="editor-titulo">Nuevo carrito</h1>
+
+      <form id="form" class="card">
+        <input type="hidden" id="f-id" />
+
+        <label for="f-receta">Receta Maestra * <small id="hint-receta">(define las líneas iniciales)</small></label>
+        <select id="f-receta" required></select>
+
+        <label for="f-docente">Docente *</label>
+        <select id="f-docente" required></select>
+
+        <label for="f-materia">Materia *</label>
+        <select id="f-materia" required></select>
+
+        <label for="f-practica">Nombre / Nº de práctica *</label>
+        <input id="f-practica" type="text" maxlength="120" required />
+
+        <label for="f-fecha">Fecha de realización *</label>
+        <input id="f-fecha" type="date" required />
+
+        <div class="fila-doble">
+          <div>
+            <label for="f-grupos-cant">Nº de grupos (cantidad) *</label>
+            <input id="f-grupos-cant" type="number" min="1" step="1" value="1" required />
+          </div>
+          <div>
+            <label for="f-grupos-txt">Grupos (etiqueta)</label>
+            <input id="f-grupos-txt" type="text" maxlength="60" placeholder="ej: 1 y 3" />
+          </div>
+        </div>
+
+        <label for="f-ambiente">Ambiente</label>
+        <select id="f-ambiente"></select>
+
+        <div class="fila-doble">
+          <div>
+            <label for="f-hora-ini">Hora inicio</label>
+            <input id="f-hora-ini" type="time" />
+          </div>
+          <div>
+            <label for="f-hora-fin">Hora fin</label>
+            <input id="f-hora-fin" type="time" />
+          </div>
+        </div>
+
+        <div class="fila-doble">
+          <div>
+            <label for="f-pedido">Nº de pedido</label>
+            <input id="f-pedido" type="number" min="0" step="1" />
+          </div>
+          <div>
+            <label for="f-codigo">Código lab QMC</label>
+            <input id="f-codigo" type="text" maxlength="40" />
+          </div>
+        </div>
+
+        <!-- Detalle (solo en edición; en "nuevo" se copia de la receta) -->
+        <div id="bloque-detalle" class="oculto">
+          <h2 class="seccion-titulo">Reactivos (consumibles)</h2>
+          <div id="lineas-reactivos" class="lineas"></div>
+          <button type="button" id="btn-add-reactivo" class="btn-secundario btn-compacto">+ Añadir reactivo (extra)</button>
+
+          <h2 class="seccion-titulo">Materiales (retornables)</h2>
+          <div id="lineas-materiales" class="lineas"></div>
+          <button type="button" id="btn-add-material" class="btn-secundario btn-compacto">+ Añadir material (extra)</button>
+        </div>
+
+        <p id="aviso-nuevo" class="mensaje">Las líneas se copiarán de la receta al armar el carrito; luego podrás editarlas y añadir extras.</p>
+        <p id="form-error" class="error"></p>
+
+        <div class="modal-botones">
+          <button type="button" id="btn-cancelar" class="btn-secundario">Cancelar</button>
+          <button type="submit" id="btn-guardar" class="btn-primario btn-compacto">Armar carrito</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script src="js/carritos.js"></script>
+</body>
+</html>

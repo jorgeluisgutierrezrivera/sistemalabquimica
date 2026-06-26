@@ -401,3 +401,41 @@ h1 {
   border: 1px solid #d0d0d5;
   border-radius: 8px;
 }
+
+/* ---- Módulo 5: Carrito ---- */
+.linea .inp-total {
+  flex: 1;
+  min-width: 3rem;
+  font-size: 0.8rem;
+  color: #555;
+  white-space: nowrap;
+}
+
+.linea .check-extra {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.78rem;
+  color: #555;
+  white-space: nowrap;
+}
+
+.fila-doble {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.fila-doble > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.badge-estado {
+  display: inline-block;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  background: #e7f0ff;
+  color: #0d6efd;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
