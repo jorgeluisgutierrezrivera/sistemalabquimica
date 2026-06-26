@@ -19,8 +19,8 @@ _Última actualización: 2026-06-26_
 | 4 | Recetas Maestras | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
 | 5 | Carrito (armado desde receta) | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
 | 6 | Estados y dashboard | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
-| 7 | Cierre y conciliación | ▶ | ☐ | ☐ | ☐ | ▶ En curso (Paso 1) |
-| 8 | PWA / offline / QR | ☐ | ☐ | ☐ | ☐ | Pendiente |
+| 7 | Cierre y conciliación | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
+| 8 | PWA / offline / QR | ▶ | ☐ | ☐ | ☐ | ▶ En curso (Paso 1) |
 | 9 | Empaquetado PyInstaller | ☐ | ☐ | ☐ | ☐ | Pendiente |
 
 > Nota: el orden 2/3 puede intercambiarse; ambos son catálogos base sin
@@ -28,13 +28,17 @@ _Última actualización: 2026-06-26_
 
 ---
 
-## Tareas activas (Módulo 7 — Cierre y conciliación)
+## Tareas activas (Módulo 8 — PWA / offline / QR)
 
-- [x] **Paso 1:** propuesta en `docs/modulos/07-cierre.md` + `[APROBADO]` (3 decisiones recomendadas)
-- [x] **Paso 2:** cierre (Proximo_Cierre → Cerrado) + conciliación + mermas + retorno de inventario (Kardex)
-- [x] **Paso 2:** frontend panel de cierre en carritos
-- [x] **Paso 3:** suite `test_cierre.py` — 8/8 OK (total 76/76)
-- [ ] **Paso 4:** *(verificado: servidor + datos ficticios)* commit + push  ← *aquí estamos*
+- [ ] **Paso 1:** redactar propuesta en `docs/modulos/08-pwa.md`
+- [ ] **Paso 1:** recibir `[APROBADO]` del usuario  ← *aquí estamos*
+- [ ] **Paso 2:** service worker / caché offline + generación de QR a la IP local
+- [ ] **Paso 3:** pruebas (las que apliquen)
+- [ ] **Paso 4:** *(verificar con servidor)* commit + push
+
+> **Módulo 7 CERRADO (2026-06-26).** Con M1–M7 el **ciclo funcional está
+> completo**. Siguiente: Módulo 8 (PWA/offline/QR) en Paso 1; luego M9
+> (empaquetado PyInstaller).
 
 > **Módulo 6 CERRADO (2026-06-26).** Siguiente: Módulo 7 (Cierre y conciliación)
 > en Paso 1. Aquí se cierra el carrito: conciliación entregado-vs-devuelto de
@@ -45,6 +49,17 @@ _Última actualización: 2026-06-26_
 > en Paso 1. Aquí entra el movimiento de inventario diferido (materiales a
 > 'en uso' + Kardex) al pasar a 'Activo', la máquina de estados
 > (Preparacion → Activo → Custodia → Proximo_Cierre) y el tablero por estado.
+
+---
+
+## Historial — Módulo 7 (Cierre y Conciliación) ✅ CERRADO 2026-06-26
+
+- [x] `cierre_service` (conciliación + reversión de inventario + mermas) + `models/cierre`
+- [x] `POST /api/carritos/{id}/cierre` + `DetalleMaterialOut.cantidad_devuelta`
+- [x] Frontend: panel de cierre (devueltas + observaciones) en carritos
+- [x] Suite `test_cierre.py` — 8/8 OK (total 76/76)
+- [x] Verificación funcional con datos ficticios (cierre con merma + registro_material_roto)
+- [x] Commit `2048b65` (feat) + cierre docs, push a `origin/main`
 
 ---
 

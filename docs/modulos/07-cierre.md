@@ -3,9 +3,9 @@
 > Plan de trabajo (metodología SDD). Este documento es el **Paso 1 (Propuesta)**.
 > No se escribe código hasta recibir `[APROBADO]`.
 
-- **Estado:** ▶ En curso (Pasos 1–3 hechos; pendiente Paso 4 — Git)
+- **Estado:** ✅ Cerrado
 - **Fecha inicio:** 2026-06-26
-- **Fecha cierre:** —
+- **Fecha cierre:** 2026-06-26
 - **Depende de:** Módulos 1–6. Tablas `carritos_cabecera` (estado),
   `carrito_detalle_materiales` (cantidad_devuelta), `registro_material_roto`,
   `movimientos_inventario`, `materiales` ya existen.
@@ -139,7 +139,7 @@ Comando: `.\.venv\Scripts\python.exe -m pytest backend/tests -v`
 - [x] **Paso 1 — Propuesta (Spec):** aprobada el 2026-06-26 (`APROBADO`; 3 decisiones recomendadas)
 - [x] **Paso 2 — Código:** entregado el 2026-06-26 (servicio + endpoint + frontend panel de cierre)
 - [x] **Paso 3 — Pruebas:** `test_cierre.py` — **8/8 OK** (suite total 76/76) el 2026-06-26
-- [ ] **Paso 4 — Git:** *(verificado con datos ficticios + servidor)* commit + push
+- [x] **Paso 4 — Git:** commit `2048b65` (feat) + cierre de docs, push a `origin/main` el 2026-06-26
 
 ### Resultado de pruebas (Paso 3)
 8 casos sobre BD temporal aislada (reusa `conftest.py`, nombres únicos L-005):
