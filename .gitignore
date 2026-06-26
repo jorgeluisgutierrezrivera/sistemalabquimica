@@ -49,6 +49,11 @@ Desktop.ini
 # --- Configuración local de Claude (mantener fuera del repo) ---
 .claude/settings.local.json
 
+# --- Skills locales (herramientas del agente, no parte del producto) ---
+.agents/
+.claude/skills/
+skills-lock.json
+
 # --- Variables de entorno sensibles ---
 .env
 .env.local
