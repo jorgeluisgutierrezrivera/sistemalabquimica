@@ -17,8 +17,8 @@ _Última actualización: 2026-06-26_
 | 2 | Inventario Materiales + catálogo Reactivos | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
 | 3 | Catálogos Base (docentes/materias/ambientes) | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
 | 4 | Recetas Maestras | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
-| 5 | Carrito (armado desde receta) | ▶ | ☐ | ☐ | ☐ | ▶ En curso (Paso 1) |
-| 6 | Estados y dashboard | ☐ | ☐ | ☐ | ☐ | Pendiente |
+| 5 | Carrito (armado desde receta) | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
+| 6 | Estados y dashboard | ▶ | ☐ | ☐ | ☐ | ▶ En curso (Paso 1) |
 | 7 | Cierre y conciliación | ☐ | ☐ | ☐ | ☐ | Pendiente |
 | 8 | PWA / offline / QR | ☐ | ☐ | ☐ | ☐ | Pendiente |
 | 9 | Empaquetado PyInstaller | ☐ | ☐ | ☐ | ☐ | Pendiente |
@@ -28,18 +28,28 @@ _Última actualización: 2026-06-26_
 
 ---
 
-## Tareas activas (Módulo 5 — Carrito armado desde receta)
+## Tareas activas (Módulo 6 — Estados y dashboard)
 
-- [x] **Paso 1:** propuesta en `docs/modulos/05-carrito.md` + `[APROBADO]` (3 decisiones recomendadas)
-- [x] **Paso 2:** backend (copia de líneas de receta a detalle editable, extras)
-- [x] **Paso 2:** frontend `carritos.html` + `js/carritos.js` + navegación
-- [x] **Paso 3:** suite `test_carrito.py` — 11/11 OK (total 56/56)
-- [ ] **Paso 4:** *(verificado: servidor + datos ficticios)* commit + push  ← *aquí estamos*
+- [ ] **Paso 1:** redactar propuesta en `docs/modulos/06-estados.md`
+- [ ] **Paso 1:** recibir `[APROBADO]` del usuario  ← *aquí estamos*
+- [ ] **Paso 2:** transiciones de estado + movimiento de inventario (en_uso/Kardex) + dashboard
+- [ ] **Paso 3:** suite `test_estados.py`
+- [ ] **Paso 4:** *(verificar con datos ficticios + servidor)* commit + push
 
-> **Módulo 4 CERRADO (2026-06-26).** Módulo 5 (Carrito) con Pasos 1–3 cerrados y
-> verificado funcionalmente; pendiente el commit/push (Paso 4).
-> Decisiones: inventario diferido a M6, `cantidad_grupos` numérico sin cambio de
-> esquema, armado desde receta + extras.
+> **Módulo 5 CERRADO (2026-06-26).** Siguiente: Módulo 6 (Estados y dashboard)
+> en Paso 1. Aquí entra el movimiento de inventario diferido (materiales a
+> 'en uso' + Kardex) al pasar a 'Activo', la máquina de estados
+> (Preparacion → Activo → Custodia → Proximo_Cierre) y el tablero por estado.
+
+---
+
+## Historial — Módulo 5 (Carrito de Insumos) ✅ CERRADO 2026-06-26
+
+- [x] Modelos + servicio (armar desde receta + CRUD + reemplazo de líneas) + router
+- [x] Frontend `carritos.html` + `js/carritos.js` (lista + editor desde receta)
+- [x] Suite `test_carrito.py` — 11/11 OK (total 56/56)
+- [x] Verificación funcional con datos ficticios (servidor + carrito demo)
+- [x] Commit `44744b6` (feat) + cierre docs, push a `origin/main`
 
 ---
 
