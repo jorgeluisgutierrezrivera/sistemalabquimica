@@ -320,3 +320,84 @@ h1 {
 .modal:not(.modo-materia) .campo-materia {
   display: none;
 }
+
+/* ============================================================
+   Módulo 4 — Recetas
+   ============================================================ */
+.oculto {
+  display: none;
+}
+
+.item-datos .inactiva {
+  color: #d9534f;
+  font-style: italic;
+}
+
+.card select,
+.card textarea {
+  padding: 0.7rem;
+  font-size: 1rem;
+  border: 1px solid #d0d0d5;
+  border-radius: 8px;
+}
+
+.check-inline {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+
+.check-inline input {
+  width: auto;
+}
+
+.seccion-titulo {
+  font-size: 1rem;
+  color: var(--color-primario);
+  margin: 1.25rem 0 0.5rem;
+  border-top: 1px solid #e5e5ea;
+  padding-top: 0.85rem;
+}
+
+.lineas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.linea {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.linea .sel-insumo {
+  flex: 2;
+  min-width: 0;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  border: 1px solid #d0d0d5;
+  border-radius: 8px;
+}
+
+.linea .inp-conc,
+.linea .inp-obs {
+  flex: 2;
+  min-width: 0;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  border: 1px solid #d0d0d5;
+  border-radius: 8px;
+}
+
+.linea .inp-cant {
+  flex: 1;
+  min-width: 0;
+  width: 4rem;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  border: 1px solid #d0d0d5;
+  border-radius: 8px;
+}

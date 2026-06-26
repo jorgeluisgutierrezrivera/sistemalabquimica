@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d6efd" />
+  <link rel="manifest" href="manifest.json" />
+  <title>Recetas - Insumos QMC</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="btn-secundario" aria-label="Volver">‹ Inicio</a>
+    <span id="sesion-info">Recetas</span>
+    <button id="logout" class="btn-secundario" type="button">Salir</button>
+  </header>
+
+  <main id="app" class="vista-ancha">
+    <!-- ============ VISTA LISTA ============ -->
+    <section id="vista-lista">
+      <h1>Recetas Maestras</h1>
+      <div class="barra-acciones">
+        <input id="buscador" class="input-busqueda" type="search" placeholder="Buscar por práctica…" />
+        <button id="btn-nueva" class="btn-primario btn-compacto" type="button">+ Nueva</button>
+      </div>
+      <p id="mensaje" class="mensaje" role="status"></p>
+      <ul id="lista" class="lista-insumos"></ul>
+    </section>
+
+    <!-- ============ VISTA EDITOR ============ -->
+    <section id="vista-editor" class="oculto">
+      <h1 id="editor-titulo">Nueva receta</h1>
+
+      <form id="form" class="card">
+        <input type="hidden" id="f-id" />
+
+        <label for="f-materia">Materia *</label>
+        <select id="f-materia" required></select>
+
+        <label for="f-practica">Nombre de la práctica *</label>
+        <input id="f-practica" type="text" maxlength="120" required />
+
+        <label for="f-descripcion">Descripción</label>
+        <input id="f-descripcion" type="text" maxlength="500" />
+
+        <label class="check-inline">
+          <input id="f-activa" type="checkbox" checked /> Activa
+        </label>
+
+        <!-- Reactivos -->
+        <h2 class="seccion-titulo">Reactivos (por grupo)</h2>
+        <div id="lineas-reactivos" class="lineas"></div>
+        <button type="button" id="btn-add-reactivo" class="btn-secundario btn-compacto">+ Añadir reactivo</button>
+
+        <!-- Materiales -->
+        <h2 class="seccion-titulo">Materiales (por grupo)</h2>
+        <div id="lineas-materiales" class="lineas"></div>
+        <button type="button" id="btn-add-material" class="btn-secundario btn-compacto">+ Añadir material</button>
+
+        <p id="form-error" class="error"></p>
+
+        <div class="modal-botones">
+          <button type="button" id="btn-cancelar" class="btn-secundario">Cancelar</button>
+          <button type="submit" class="btn-primario btn-compacto">Guardar receta</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script src="js/recetas.js"></script>
+</body>
+</html>

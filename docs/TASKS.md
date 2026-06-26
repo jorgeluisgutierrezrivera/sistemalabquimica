@@ -4,7 +4,7 @@
 > Propuesta → Código → Pruebas → Git). Se actualiza al cerrar cada paso.
 > Convenciones: ☐ pendiente · ▶ en curso · ✅ hecho · ⏸ en pausa.
 
-_Última actualización: 2026-06-25_
+_Última actualización: 2026-06-26_
 
 ---
 
@@ -16,7 +16,7 @@ _Última actualización: 2026-06-25_
 | 1 | **Autenticación** | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
 | 2 | Inventario Materiales + catálogo Reactivos | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
 | 3 | Catálogos Base (docentes/materias/ambientes) | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
-| 4 | Recetas Maestras | ☐ | ☐ | ☐ | ☐ | Pendiente |
+| 4 | Recetas Maestras | ✅ | ✅ | ✅ | ▶ | ▶ En curso (Paso 4) |
 | 5 | Carrito (armado desde receta) | ☐ | ☐ | ☐ | ☐ | Pendiente |
 | 6 | Estados y dashboard | ☐ | ☐ | ☐ | ☐ | Pendiente |
 | 7 | Cierre y conciliación | ☐ | ☐ | ☐ | ☐ | Pendiente |
@@ -28,16 +28,26 @@ _Última actualización: 2026-06-25_
 
 ---
 
-## Tareas activas (Módulo 3 — Catálogos Base)
+## Tareas activas (Módulo 4 — Recetas Maestras)
 
-- [x] **Paso 1:** propuesta en `docs/modulos/03-catalogos-base.md` + `[APROBADO]` (`horarios_semestre` diferido)
-- [x] **Paso 2:** modelos + servicios (docentes/materias/ambientes) + router + `main.py`
-- [x] **Paso 2:** frontend `catalogos.html` + `js/catalogos.js` + estilos + navegación
-- [x] **Paso 3:** suite `test_catalogos.py` — 14/14 OK (total 35/35)
-- [x] **Paso 4:** commit `92486a9` + push a `origin/main`
+- [x] **Paso 1:** propuesta en `docs/modulos/04-recetas.md` + `[APROBADO]` (opción A, agregado anidado)
+- [x] **Paso 2:** modelos + servicio (CRUD + reemplazo de detalles) + router + `main.py`
+- [x] **Paso 2:** frontend `recetas.html` + `js/recetas.js` + navegación
+- [x] **Paso 3:** suite `test_recetas.py` — 10/10 OK (total 45/45)
+- [ ] **Paso 4:** commit + push a GitHub  ← *aquí estamos*
 
-> **Módulo 3 CERRADO (2026-06-25).** Siguiente: Módulo 4 — Recetas Maestras
-> (plantillas reutilizables); empezar por su `docs/modulos/04-*.md` (Paso 1).
+> Módulo 4 con Pasos 1–3 cerrados; pendiente el commit/push (Paso 4).
+> Receta como **agregado anidado** (un POST/PUT reemplaza las líneas en
+> transacción). Lección nueva L-005 (BD de pruebas de sesión → nombres únicos).
+
+---
+
+## Historial — Módulo 3 (Catálogos Base) ✅ CERRADO 2026-06-25
+
+- [x] Modelos + servicios (docentes/materias/ambientes) + router + `main.py`
+- [x] Frontend `catalogos.html` + `js/catalogos.js` con 3 pestañas
+- [x] Suite `test_catalogos.py` — 14/14 OK (total 35/35)
+- [x] Commit `92486a9` + cierre docs `b488b51`, push a `origin/main`
 
 ---
 

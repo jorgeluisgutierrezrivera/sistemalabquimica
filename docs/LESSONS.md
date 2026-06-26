@@ -42,3 +42,16 @@ _Última actualización: 2026-06-25_
 - **Evitar / mejora futura:** si se necesita búsqueda insensible a acentos,
   registrar una función de normalización en la conexión SQLite (o guardar una
   columna "nombre_normalizado" sin tildes) y filtrar sobre ella.
+
+## L-005 · La BD de pruebas es de sesión: usar nombres únicos en fixtures
+- **Síntoma:** al añadir `test_recetas.py`, los fixtures que creaban entidades
+  con nombre fijo (materia "RCT1", reactivo "EDTA receta") fallaban con
+  `KeyError: 'id'` a partir del segundo test que los usaba.
+- **Causa:** `conftest.py` crea la BD temporal una sola vez por **sesión**
+  (`scope="session"`); los datos persisten entre tests. El segundo `POST` con el
+  mismo nombre devuelve 409 (sin `id`), no 201.
+- **Solución:** en fixtures que insertan datos de apoyo reutilizables, generar
+  nombres únicos por test (`uuid.uuid4().hex[:8]`) y evitar aserciones atadas a
+  un nombre fijo.
+- **Evitar:** no asumir BD limpia entre tests; o se usan nombres únicos, o se
+  cambia el scope del fixture de BD a "function" (más lento).
