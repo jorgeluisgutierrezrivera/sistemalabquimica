@@ -18,8 +18,8 @@ _Última actualización: 2026-06-26_
 | 3 | Catálogos Base (docentes/materias/ambientes) | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
 | 4 | Recetas Maestras | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
 | 5 | Carrito (armado desde receta) | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
-| 6 | Estados y dashboard | ▶ | ☐ | ☐ | ☐ | ▶ En curso (Paso 1) |
-| 7 | Cierre y conciliación | ☐ | ☐ | ☐ | ☐ | Pendiente |
+| 6 | Estados y dashboard | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
+| 7 | Cierre y conciliación | ▶ | ☐ | ☐ | ☐ | ▶ En curso (Paso 1) |
 | 8 | PWA / offline / QR | ☐ | ☐ | ☐ | ☐ | Pendiente |
 | 9 | Empaquetado PyInstaller | ☐ | ☐ | ☐ | ☐ | Pendiente |
 
@@ -28,18 +28,34 @@ _Última actualización: 2026-06-26_
 
 ---
 
-## Tareas activas (Módulo 6 — Estados y dashboard)
+## Tareas activas (Módulo 7 — Cierre y conciliación)
 
-- [x] **Paso 1:** propuesta en `docs/modulos/06-estados.md` + `[APROBADO]` (3 decisiones recomendadas)
-- [x] **Paso 2:** transiciones de estado + movimiento de inventario (en_uso/Kardex) + dashboard
-- [x] **Paso 2:** frontend `dashboard.html` + botón avanzar estado en carritos
-- [x] **Paso 3:** suite `test_estados.py` — 12/12 OK (total 68/68)
-- [ ] **Paso 4:** *(verificado: servidor + datos ficticios)* commit + push  ← *aquí estamos*
+- [ ] **Paso 1:** redactar propuesta en `docs/modulos/07-cierre.md`
+- [ ] **Paso 1:** recibir `[APROBADO]` del usuario  ← *aquí estamos*
+- [ ] **Paso 2:** cierre (Proximo_Cierre → Cerrado) + conciliación entregado-vs-devuelto + mermas + retorno de inventario (Kardex)
+- [ ] **Paso 3:** suite `test_cierre.py`
+- [ ] **Paso 4:** *(verificar con datos ficticios + servidor)* commit + push
+
+> **Módulo 6 CERRADO (2026-06-26).** Siguiente: Módulo 7 (Cierre y conciliación)
+> en Paso 1. Aquí se cierra el carrito: conciliación entregado-vs-devuelto de
+> materiales (retorno de `cantidad_en_uso` + Kardex `retorno`/`merma`), registro
+> de mermas (`registro_material_roto`) y transición final a `Cerrado`.
 
 > **Módulo 5 CERRADO (2026-06-26).** Siguiente: Módulo 6 (Estados y dashboard)
 > en Paso 1. Aquí entra el movimiento de inventario diferido (materiales a
 > 'en uso' + Kardex) al pasar a 'Activo', la máquina de estados
 > (Preparacion → Activo → Custodia → Proximo_Cierre) y el tablero por estado.
+
+---
+
+## Historial — Módulo 6 (Estados y Dashboard) ✅ CERRADO 2026-06-26
+
+- [x] `estados_service` (transiciones forward-only + inventario en_uso/Kardex) + `dashboard_service`
+- [x] `PATCH /api/carritos/{id}/estado` + `GET /api/dashboard`
+- [x] Frontend `dashboard.html` + `js/dashboard.js` + botón avanzar estado en carritos
+- [x] Suite `test_estados.py` — 12/12 OK (total 68/68)
+- [x] Verificación funcional con datos ficticios (transición Activo movió inventario + Kardex)
+- [x] Commit `e504d33` (feat) + cierre docs, push a `origin/main`
 
 ---
 
