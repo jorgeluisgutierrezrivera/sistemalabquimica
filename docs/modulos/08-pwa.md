@@ -3,9 +3,9 @@
 > Plan de trabajo (metodología SDD). Este documento es el **Paso 1 (Propuesta)**.
 > No se escribe código hasta recibir `[APROBADO]`.
 
-- **Estado:** ▶ En curso (Pasos 1–3 hechos; pendiente Paso 4 — Git)
+- **Estado:** ✅ Cerrado
 - **Fecha inicio:** 2026-06-26
-- **Fecha cierre:** —
+- **Fecha cierre:** 2026-06-26
 - **Depende de:** Módulos 1–7 (ciclo funcional completo). Toca infraestructura
   PWA, no reglas de negocio. Sin cambios de esquema.
 
@@ -108,7 +108,7 @@ Comando: `.\.venv\Scripts\python.exe -m pytest backend/tests -v`
 - [x] **Paso 1 — Propuesta (Spec):** aprobada el 2026-06-26 (`APROBADO`; 3 decisiones recomendadas)
 - [x] **Paso 2 — Código:** entregado el 2026-06-26 (SW app-shell + iconos + router red + UI; `segno` instalado)
 - [x] **Paso 3 — Pruebas:** `test_red.py` — **3/3 OK** (suite total 79/79) el 2026-06-26
-- [ ] **Paso 4 — Git:** *(verificado con servidor)* commit + push
+- [x] **Paso 4 — Git:** commit `49c74c0` (feat) + cierre de docs, push a `origin/main` el 2026-06-26
 
 ### Resultado de pruebas (Paso 3)
 3 casos pytest sobre los endpoints públicos: `/api/red/info` (200 sin token, trae

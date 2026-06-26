@@ -20,20 +20,24 @@ _Última actualización: 2026-06-26_
 | 5 | Carrito (armado desde receta) | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
 | 6 | Estados y dashboard | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
 | 7 | Cierre y conciliación | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
-| 8 | PWA / offline / QR | ▶ | ☐ | ☐ | ☐ | ▶ En curso (Paso 1) |
-| 9 | Empaquetado PyInstaller | ☐ | ☐ | ☐ | ☐ | Pendiente |
+| 8 | PWA / offline / QR | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
+| 9 | Empaquetado PyInstaller | ▶ | ☐ | ☐ | ☐ | ▶ En curso (Paso 1) |
 
 > Nota: el orden 2/3 puede intercambiarse; ambos son catálogos base sin
 > dependencias entre sí. Detalle de cada módulo en `docs/modulos/`.
 
 ---
 
-## Tareas activas (Módulo 8 — PWA / offline / QR)
+## Tareas activas (Módulo 9 — Empaquetado PyInstaller)
 
-- [x] **Paso 1:** propuesta en `docs/modulos/08-pwa.md` + `[APROBADO]` (3 decisiones recomendadas)
-- [x] **Paso 2:** SW app-shell + iconos + router de red (QR/segno) + UI «Acceso móvil»
-- [x] **Paso 3:** `test_red.py` — 3/3 OK (total 79/79) + verificación PWA en navegador
-- [ ] **Paso 4:** *(verificado: servidor + IP LAN + QR)* commit + push  ← *aquí estamos*
+- [ ] **Paso 1:** redactar propuesta en `docs/modulos/09-empaquetado.md`
+- [ ] **Paso 1:** recibir `[APROBADO]` del usuario  ← *aquí estamos*
+- [ ] **Paso 2:** build del `.exe` autocontenido (incluir frontend/, BD, segno) + arranque
+- [ ] **Paso 3:** verificación del ejecutable
+- [ ] **Paso 4:** *(verificar)* commit + push
+
+> **Módulo 8 CERRADO (2026-06-26).** Último módulo: M9 (empaquetado del `.exe`
+> con PyInstaller) para entregar el sistema autocontenido.
 
 > **Módulo 7 CERRADO (2026-06-26).** Con M1–M7 el **ciclo funcional está
 > completo**. Siguiente: Módulo 8 (PWA/offline/QR) en Paso 1; luego M9
@@ -48,6 +52,18 @@ _Última actualización: 2026-06-26_
 > en Paso 1. Aquí entra el movimiento de inventario diferido (materiales a
 > 'en uso' + Kardex) al pasar a 'Activo', la máquina de estados
 > (Preparacion → Activo → Custodia → Proximo_Cierre) y el tablero por estado.
+
+---
+
+## Historial — Módulo 8 (PWA / Offline / QR) ✅ CERRADO 2026-06-26
+
+- [x] Service Worker con caché de app-shell (cache-first estáticos, network-only API)
+- [x] Iconos PWA `icon-192/512.png` en Python puro (`scripts/gen_icons.py`)
+- [x] Router público `/api/red` (info + QR `segno`) + tarjeta «Acceso móvil»
+- [x] `requirements.txt` + `segno==1.6.1`
+- [x] Suite `test_red.py` — 3/3 OK (total 79/79)
+- [x] Verificación funcional (IP LAN detectada, QR SVG, iconos sin 404)
+- [x] Commit `49c74c0` (feat) + cierre docs, push a `origin/main`
 
 ---
 
