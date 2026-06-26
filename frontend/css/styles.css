@@ -504,3 +504,14 @@ h1 {
   text-decoration: none;
   color: inherit;
 }
+
+/* ---- Módulo 7: Cierre ---- */
+.linea-cierre .cierre-nombre {
+  flex: 2;
+  min-width: 0;
+  font-size: 0.85rem;
+}
+
+.linea-cierre .inp-devuelta {
+  flex: 0 0 4.5rem;
+}

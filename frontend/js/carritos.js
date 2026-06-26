@@ -24,6 +24,7 @@ let cacheReactivos = [];
 let cacheMateriales = [];
 let buscarTimer = null;
 let modo = "nuevo"; // "nuevo" | "editar"
+let carritoActual = null; // carrito cargado en modo edición (para el cierre)
 
 // Transiciones válidas (forward-only; 'Cerrado' es del Módulo 7).
 const TRANSICIONES = {
@@ -218,6 +219,7 @@ async function abrirEditor(carritoId = null) {
       return;
     }
     const c = await resp.json();
+    carritoActual = c;
     $("f-id").value = c.id;
     $("editor-titulo").textContent = "Editar carrito";
     $("btn-guardar").textContent = "Guardar cambios";
@@ -253,12 +255,14 @@ async function abrirEditor(carritoId = null) {
   } else {
     // -------- modo nuevo (armar) --------
     modo = "nuevo";
+    carritoActual = null;
     $("f-id").value = "";
     $("editor-titulo").textContent = "Nuevo carrito";
     $("btn-guardar").textContent = "Armar carrito";
     $("bloque-detalle").classList.add("oculto");
     $("aviso-nuevo").classList.remove("oculto");
     $("bloque-estado").classList.add("oculto");
+    $("bloque-cierre").classList.add("oculto");
     selRec.disabled = false;
     $("hint-receta").textContent = "(define las líneas iniciales)";
   }
@@ -286,13 +290,93 @@ function mostrarBloqueEstado(estado) {
   const sinAvance = destinos.length === 0;
   sel.disabled = sinAvance;
   $("btn-avanzar").disabled = sinAvance;
-  if (sinAvance) {
+  // En 'Proximo_Cierre' se ofrece el cierre/conciliación.
+  const puedeCerrar = estado === "Proximo_Cierre";
+  $("btn-abrir-cierre").classList.toggle("oculto", !puedeCerrar);
+  if (sinAvance && !puedeCerrar) {
     $("estado-msg").textContent =
-      estado === "Proximo_Cierre"
-        ? "El cierre se realizará en el Módulo 7."
+      estado === "Cerrado"
+        ? "Carrito cerrado (solo lectura)."
         : "Sin transiciones disponibles.";
   }
+  $("bloque-cierre").classList.add("oculto");
   bloque.classList.remove("oculto");
+}
+
+// -------- Cierre / conciliación (Módulo 7) --------
+function abrirPanelCierre() {
+  if (!carritoActual) return;
+  $("cierre-error").textContent = "";
+  const cont = $("cierre-lineas");
+  cont.innerHTML = "";
+  for (const m of carritoActual.materiales) {
+    const div = document.createElement("div");
+    div.className = "linea linea-cierre";
+    div.dataset.detalle = m.id;
+    div.dataset.entregada = m.cantidad_entregada;
+
+    const nombre = document.createElement("span");
+    nombre.className = "cierre-nombre";
+    nombre.textContent = m.capacidad ? `${m.nombre} (${m.capacidad})` : m.nombre;
+
+    const entregada = document.createElement("span");
+    entregada.className = "inp-total";
+    entregada.textContent = `entreg. ${m.cantidad_entregada}`;
+
+    const dev = document.createElement("input");
+    dev.type = "number";
+    dev.className = "inp-cant inp-devuelta";
+    dev.min = "0";
+    dev.max = String(m.cantidad_entregada);
+    dev.step = "1";
+    dev.value = m.cantidad_entregada; // default: devolución completa
+
+    const obs = document.createElement("input");
+    obs.type = "text";
+    obs.className = "inp-obs inp-obs-cierre";
+    obs.placeholder = "Observación (si hay merma)";
+    obs.maxLength = 200;
+
+    div.append(nombre, entregada, dev, obs);
+    cont.appendChild(div);
+  }
+  $("bloque-cierre").classList.remove("oculto");
+}
+
+async function confirmarCierre() {
+  const cid = $("f-id").value;
+  if (!cid) return;
+  $("cierre-error").textContent = "";
+  const devoluciones = [];
+  for (const div of document.querySelectorAll(".linea-cierre")) {
+    const entregada = parseInt(div.dataset.entregada, 10);
+    const dev = parseInt(div.querySelector(".inp-devuelta").value, 10);
+    if (!(dev >= 0) || dev > entregada) {
+      $("cierre-error").textContent =
+        "La cantidad devuelta debe estar entre 0 y la entregada.";
+      return;
+    }
+    devoluciones.push({
+      detalle_material_id: parseInt(div.dataset.detalle, 10),
+      cantidad_devuelta: dev,
+      observaciones: div.querySelector(".inp-obs-cierre").value.trim() || null,
+    });
+  }
+  try {
+    const resp = await Auth.authFetch(`/api/carritos/${cid}/cierre`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ devoluciones }),
+    });
+    if (!resp.ok) {
+      $("cierre-error").textContent = await leerError(resp, "No se pudo cerrar.");
+      return;
+    }
+    mostrarMensaje("Carrito cerrado y conciliado.");
+    abrirEditor(parseInt(cid, 10));
+  } catch {
+    $("cierre-error").textContent = "Sin conexión con el servidor.";
+  }
 }
 
 async function avanzarEstado() {
@@ -551,6 +635,11 @@ $("btn-add-material").addEventListener("click", () => agregarLineaMaterial());
 $("f-receta").addEventListener("change", onRecetaChange);
 $("f-grupos-cant").addEventListener("input", recomputarTotales);
 $("btn-avanzar").addEventListener("click", avanzarEstado);
+$("btn-abrir-cierre").addEventListener("click", abrirPanelCierre);
+$("btn-confirmar-cierre").addEventListener("click", confirmarCierre);
+$("btn-cancelar-cierre").addEventListener("click", () =>
+  $("bloque-cierre").classList.add("oculto")
+);
 form.addEventListener("submit", guardar);
 $("logout").addEventListener("click", () => Auth.logout());
 

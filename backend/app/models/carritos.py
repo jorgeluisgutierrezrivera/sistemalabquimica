@@ -48,6 +48,7 @@ class DetalleMaterialOut(BaseModel):
     nombre: str  # snapshot nombre_material
     capacidad: str | None = None
     cantidad_entregada: int
+    cantidad_devuelta: int | None = None  # se llena al cerrar (M7)
     es_extra: bool
     observaciones: str | None = None
 

@@ -37,8 +37,21 @@
         <div class="estado-acciones">
           <select id="f-estado-destino"></select>
           <button type="button" id="btn-avanzar" class="btn-primario btn-compacto">Avanzar</button>
+          <button type="button" id="btn-abrir-cierre" class="btn-primario btn-compacto oculto">Cerrar carrito</button>
         </div>
         <p id="estado-msg" class="mensaje"></p>
+      </div>
+
+      <!-- Panel de cierre / conciliación (solo en Proximo_Cierre) -->
+      <div id="bloque-cierre" class="card oculto">
+        <h2 class="seccion-titulo">Conciliación de cierre</h2>
+        <p class="mensaje">Indica cuánto se devolvió de cada material (precargado = entregado). El faltante se registra como merma.</p>
+        <div id="cierre-lineas" class="lineas"></div>
+        <p id="cierre-error" class="error"></p>
+        <div class="modal-botones">
+          <button type="button" id="btn-cancelar-cierre" class="btn-secundario">Cancelar</button>
+          <button type="button" id="btn-confirmar-cierre" class="btn-primario btn-compacto">Confirmar cierre</button>
+        </div>
       </div>
 
       <form id="form" class="card">

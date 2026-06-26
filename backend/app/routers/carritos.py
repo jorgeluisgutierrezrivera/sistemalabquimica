@@ -15,8 +15,9 @@ from ..models.carritos import (
     DetalleMaterialOut,
     DetalleReactivoOut,
 )
+from ..models.cierre import CierreIn
 from ..models.estados import CambioEstadoIn
-from ..services import carritos_service, estados_service
+from ..services import carritos_service, cierre_service, estados_service
 
 router = APIRouter(
     prefix="/api/carritos",
@@ -90,6 +91,7 @@ def _completa(data: dict) -> CarritoOut:
                 nombre=d["nombre_material"],
                 capacidad=d["capacidad"],
                 cantidad_entregada=d["cantidad_entregada"],
+                cantidad_devuelta=d["cantidad_devuelta"],
                 es_extra=bool(d["es_extra"]),
                 observaciones=d["observaciones"],
             )
@@ -154,6 +156,21 @@ def cambiar_estado(carrito_id: int, datos: CambioEstadoIn) -> CarritoOut:
     except estados_service.TransicionInvalida as exc:
         raise HTTPException(status.HTTP_409_CONFLICT, str(exc))
     except estados_service.StockInsuficiente as exc:
+        raise HTTPException(status.HTTP_409_CONFLICT, str(exc))
+    if not ok:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "Carrito no encontrado.")
+    return _completa(carritos_service.obtener(carrito_id))
+
+
+@router.post("/{carrito_id}/cierre", response_model=CarritoOut)
+def cerrar_carrito(carrito_id: int, datos: CierreIn) -> CarritoOut:
+    """Concilia y cierra el carrito (Módulo 7): devolución de materiales,
+    reversión de inventario, mermas y transición a 'Cerrado'."""
+    try:
+        ok = cierre_service.cerrar(carrito_id, datos)
+    except cierre_service.CierreEstadoInvalido as exc:
+        raise HTTPException(status.HTTP_409_CONFLICT, str(exc))
+    except cierre_service.DevolucionInvalida as exc:
         raise HTTPException(status.HTTP_409_CONFLICT, str(exc))
     if not ok:
         raise HTTPException(status.HTTP_404_NOT_FOUND, "Carrito no encontrado.")

@@ -30,11 +30,11 @@ _Última actualización: 2026-06-26_
 
 ## Tareas activas (Módulo 7 — Cierre y conciliación)
 
-- [ ] **Paso 1:** redactar propuesta en `docs/modulos/07-cierre.md`
-- [ ] **Paso 1:** recibir `[APROBADO]` del usuario  ← *aquí estamos*
-- [ ] **Paso 2:** cierre (Proximo_Cierre → Cerrado) + conciliación entregado-vs-devuelto + mermas + retorno de inventario (Kardex)
-- [ ] **Paso 3:** suite `test_cierre.py`
-- [ ] **Paso 4:** *(verificar con datos ficticios + servidor)* commit + push
+- [x] **Paso 1:** propuesta en `docs/modulos/07-cierre.md` + `[APROBADO]` (3 decisiones recomendadas)
+- [x] **Paso 2:** cierre (Proximo_Cierre → Cerrado) + conciliación + mermas + retorno de inventario (Kardex)
+- [x] **Paso 2:** frontend panel de cierre en carritos
+- [x] **Paso 3:** suite `test_cierre.py` — 8/8 OK (total 76/76)
+- [ ] **Paso 4:** *(verificado: servidor + datos ficticios)* commit + push  ← *aquí estamos*
 
 > **Módulo 6 CERRADO (2026-06-26).** Siguiente: Módulo 7 (Cierre y conciliación)
 > en Paso 1. Aquí se cierra el carrito: conciliación entregado-vs-devuelto de
