@@ -16,8 +16,8 @@ _Última actualización: 2026-06-26_
 | 1 | **Autenticación** | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
 | 2 | Inventario Materiales + catálogo Reactivos | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
 | 3 | Catálogos Base (docentes/materias/ambientes) | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
-| 4 | Recetas Maestras | ✅ | ✅ | ✅ | ▶ | ▶ En curso (Paso 4) |
-| 5 | Carrito (armado desde receta) | ☐ | ☐ | ☐ | ☐ | Pendiente |
+| 4 | Recetas Maestras | ✅ | ✅ | ✅ | ✅ | ✅ **Cerrado** |
+| 5 | Carrito (armado desde receta) | ▶ | ☐ | ☐ | ☐ | ▶ En curso (Paso 1) |
 | 6 | Estados y dashboard | ☐ | ☐ | ☐ | ☐ | Pendiente |
 | 7 | Cierre y conciliación | ☐ | ☐ | ☐ | ☐ | Pendiente |
 | 8 | PWA / offline / QR | ☐ | ☐ | ☐ | ☐ | Pendiente |
@@ -28,17 +28,25 @@ _Última actualización: 2026-06-26_
 
 ---
 
-## Tareas activas (Módulo 4 — Recetas Maestras)
+## Tareas activas (Módulo 5 — Carrito armado desde receta)
 
-- [x] **Paso 1:** propuesta en `docs/modulos/04-recetas.md` + `[APROBADO]` (opción A, agregado anidado)
-- [x] **Paso 2:** modelos + servicio (CRUD + reemplazo de detalles) + router + `main.py`
-- [x] **Paso 2:** frontend `recetas.html` + `js/recetas.js` + navegación
-- [x] **Paso 3:** suite `test_recetas.py` — 10/10 OK (total 45/45)
-- [ ] **Paso 4:** commit + push a GitHub  ← *aquí estamos*
+- [ ] **Paso 1:** redactar propuesta en `docs/modulos/05-carrito.md`
+- [ ] **Paso 1:** recibir `[APROBADO]` del usuario  ← *aquí estamos*
+- [ ] **Paso 2:** backend (copia de líneas de receta a detalle editable, extras)
+- [ ] **Paso 2:** frontend de armado de carrito
+- [ ] **Paso 3:** suite `test_carrito.py`
+- [ ] **Paso 4:** commit + push a GitHub
 
-> Módulo 4 con Pasos 1–3 cerrados; pendiente el commit/push (Paso 4).
-> Receta como **agregado anidado** (un POST/PUT reemplaza las líneas en
-> transacción). Lección nueva L-005 (BD de pruebas de sesión → nombres únicos).
+> **Módulo 4 CERRADO (2026-06-26).** Siguiente: Módulo 5 (Carrito) en Paso 1.
+
+---
+
+## Historial — Módulo 4 (Recetas Maestras) ✅ CERRADO 2026-06-26
+
+- [x] Modelos + servicio (CRUD + reemplazo de detalles en transacción) + router
+- [x] Frontend `recetas.html` + `js/recetas.js` (lista + editor con 2 tablas)
+- [x] Suite `test_recetas.py` — 10/10 OK (total 45/45)
+- [x] Commit `60decb3` (feat) + cierre docs, push a `origin/main`
 
 ---
 

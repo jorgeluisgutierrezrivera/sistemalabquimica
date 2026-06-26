@@ -3,9 +3,9 @@
 > Plan de trabajo (metodología SDD). Este documento es el **Paso 1 (Propuesta)**.
 > No se escribe código hasta recibir `[APROBADO]`.
 
-- **Estado:** ▶ En curso (Pasos 1–3 hechos; pendiente Paso 4 — Git)
+- **Estado:** ✅ Cerrado
 - **Fecha inicio:** 2026-06-25
-- **Fecha cierre:** —
+- **Fecha cierre:** 2026-06-26
 - **Depende de:** Módulo 1 (Auth), Módulo 2 (catálogos reactivos/materiales),
   Módulo 3 (catálogo materias). Tablas `recetas`,
   `receta_detalle_reactivos`, `receta_detalle_materiales` ya existen.
@@ -139,7 +139,7 @@ Comando: `.\.venv\Scripts\python.exe -m pytest backend/tests -v`
 - [x] **Paso 1 — Propuesta (Spec):** aprobada el 2026-06-25 (`APROBADO`; opción A — agregado anidado)
 - [x] **Paso 2 — Código:** entregado el 2026-06-25 (backend + frontend lista/editor)
 - [x] **Paso 3 — Pruebas:** `test_recetas.py` — **10/10 OK** (suite total 45/45) el 2026-06-25
-- [ ] **Paso 4 — Git:** commit `<hash/mensaje>` el AAAA-MM-DD
+- [x] **Paso 4 — Git:** commit `60decb3` (feat) + cierre de docs, push a `origin/main` el 2026-06-26
 
 ### Resultado de pruebas (Paso 3)
 10 casos sobre BD temporal aislada (reusa `conftest.py`): auth (401), crear +
