@@ -25,6 +25,15 @@ let cacheMateriales = [];
 let buscarTimer = null;
 let modo = "nuevo"; // "nuevo" | "editar"
 
+// Transiciones válidas (forward-only; 'Cerrado' es del Módulo 7).
+const TRANSICIONES = {
+  Preparacion: ["Activo"],
+  Activo: ["Custodia", "Proximo_Cierre"],
+  Custodia: ["Proximo_Cierre"],
+  Proximo_Cierre: [],
+  Cerrado: [],
+};
+
 // ============================================================
 // Utilidades
 // ============================================================
@@ -240,6 +249,7 @@ async function abrirEditor(carritoId = null) {
     c.reactivos.forEach((d) => agregarLineaReactivo(d));
     c.materiales.forEach((d) => agregarLineaMaterial(d));
     recomputarTotales();
+    mostrarBloqueEstado(c.estado_carrito);
   } else {
     // -------- modo nuevo (armar) --------
     modo = "nuevo";
@@ -248,6 +258,7 @@ async function abrirEditor(carritoId = null) {
     $("btn-guardar").textContent = "Armar carrito";
     $("bloque-detalle").classList.add("oculto");
     $("aviso-nuevo").classList.remove("oculto");
+    $("bloque-estado").classList.add("oculto");
     selRec.disabled = false;
     $("hint-receta").textContent = "(define las líneas iniciales)";
   }
@@ -260,6 +271,51 @@ function cerrarEditor() {
   vistaEditor.classList.add("oculto");
   vistaLista.classList.remove("oculto");
   cargarLista();
+}
+
+// Muestra el bloque de estado con las transiciones válidas (modo edición).
+function mostrarBloqueEstado(estado) {
+  const bloque = $("bloque-estado");
+  const destinos = TRANSICIONES[estado] || [];
+  $("estado-actual").textContent = estado;
+  $("estado-msg").textContent = "";
+  const sel = $("f-estado-destino");
+  sel.innerHTML = "";
+  for (const e of destinos) sel.appendChild(opcion(e, e.replace("_", " "), false));
+  // Sin destinos válidos (Proximo_Cierre / Cerrado): deshabilitar avance.
+  const sinAvance = destinos.length === 0;
+  sel.disabled = sinAvance;
+  $("btn-avanzar").disabled = sinAvance;
+  if (sinAvance) {
+    $("estado-msg").textContent =
+      estado === "Proximo_Cierre"
+        ? "El cierre se realizará en el Módulo 7."
+        : "Sin transiciones disponibles.";
+  }
+  bloque.classList.remove("oculto");
+}
+
+async function avanzarEstado() {
+  const cid = $("f-id").value;
+  const destino = $("f-estado-destino").value;
+  if (!cid || !destino) return;
+  $("estado-msg").textContent = "Aplicando…";
+  try {
+    const resp = await Auth.authFetch(`/api/carritos/${cid}/estado`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ estado: destino }),
+    });
+    if (!resp.ok) {
+      $("estado-msg").textContent = await leerError(resp, "No se pudo avanzar.");
+      return;
+    }
+    const c = await resp.json();
+    mostrarBloqueEstado(c.estado_carrito);
+    $("estado-msg").textContent = `Estado actualizado a "${c.estado_carrito}".`;
+  } catch {
+    $("estado-msg").textContent = "Sin conexión con el servidor.";
+  }
 }
 
 function quitarLinea(boton) {
@@ -494,6 +550,7 @@ $("btn-add-reactivo").addEventListener("click", () => agregarLineaReactivo());
 $("btn-add-material").addEventListener("click", () => agregarLineaMaterial());
 $("f-receta").addEventListener("change", onRecetaChange);
 $("f-grupos-cant").addEventListener("input", recomputarTotales);
+$("btn-avanzar").addEventListener("click", avanzarEstado);
 form.addEventListener("submit", guardar);
 $("logout").addEventListener("click", () => Auth.logout());
 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0d6efd" />
+  <link rel="manifest" href="manifest.json" />
+  <title>Tablero - Insumos QMC</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="btn-secundario" aria-label="Volver">‹ Inicio</a>
+    <span id="sesion-info">Tablero</span>
+    <button id="logout" class="btn-secundario" type="button">Salir</button>
+  </header>
+
+  <main id="app" class="vista-ancha">
+    <h1>Tablero de Control</h1>
+    <p id="mensaje" class="mensaje" role="status"></p>
+
+    <section id="tarjetas-estado" class="tarjetas-estado"></section>
+
+    <h2 class="seccion-titulo">Activos</h2>
+    <ul id="lista-activos" class="lista-insumos"></ul>
+
+    <h2 class="seccion-titulo">Próximos a cierre</h2>
+    <ul id="lista-proximos" class="lista-insumos"></ul>
+
+    <h2 class="seccion-titulo">Del día</h2>
+    <ul id="lista-dia" class="lista-insumos"></ul>
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

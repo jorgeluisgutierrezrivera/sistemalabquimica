@@ -15,7 +15,8 @@ from ..models.carritos import (
     DetalleMaterialOut,
     DetalleReactivoOut,
 )
-from ..services import carritos_service
+from ..models.estados import CambioEstadoIn
+from ..services import carritos_service, estados_service
 
 router = APIRouter(
     prefix="/api/carritos",
@@ -138,6 +139,21 @@ def actualizar_carrito(carrito_id: int, datos: CarritoEditarIn) -> CarritoOut:
     except carritos_service.FKInexistente as exc:
         raise HTTPException(status.HTTP_400_BAD_REQUEST, str(exc))
     except carritos_service.CarritoDuplicado as exc:
+        raise HTTPException(status.HTTP_409_CONFLICT, str(exc))
+    if not ok:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "Carrito no encontrado.")
+    return _completa(carritos_service.obtener(carrito_id))
+
+
+@router.patch("/{carrito_id}/estado", response_model=CarritoOut)
+def cambiar_estado(carrito_id: int, datos: CambioEstadoIn) -> CarritoOut:
+    """Avanza el estado del carrito (Módulo 6). Al entrar a 'Activo' mueve el
+    inventario (materiales a 'en uso' + Kardex)."""
+    try:
+        ok = estados_service.transicionar(carrito_id, datos.estado)
+    except estados_service.TransicionInvalida as exc:
+        raise HTTPException(status.HTTP_409_CONFLICT, str(exc))
+    except estados_service.StockInsuficiente as exc:
         raise HTTPException(status.HTTP_409_CONFLICT, str(exc))
     if not ok:
         raise HTTPException(status.HTTP_404_NOT_FOUND, "Carrito no encontrado.")

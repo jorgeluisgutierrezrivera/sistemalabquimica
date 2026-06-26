@@ -31,6 +31,16 @@
     <section id="vista-editor" class="oculto">
       <h1 id="editor-titulo">Nuevo carrito</h1>
 
+      <!-- Estado + avanzar (solo en edición) -->
+      <div id="bloque-estado" class="card bloque-estado oculto">
+        <span>Estado: <span id="estado-actual" class="badge-estado">—</span></span>
+        <div class="estado-acciones">
+          <select id="f-estado-destino"></select>
+          <button type="button" id="btn-avanzar" class="btn-primario btn-compacto">Avanzar</button>
+        </div>
+        <p id="estado-msg" class="mensaje"></p>
+      </div>
+
       <form id="form" class="card">
         <input type="hidden" id="f-id" />
 

@@ -30,11 +30,11 @@ _Última actualización: 2026-06-26_
 
 ## Tareas activas (Módulo 6 — Estados y dashboard)
 
-- [ ] **Paso 1:** redactar propuesta en `docs/modulos/06-estados.md`
-- [ ] **Paso 1:** recibir `[APROBADO]` del usuario  ← *aquí estamos*
-- [ ] **Paso 2:** transiciones de estado + movimiento de inventario (en_uso/Kardex) + dashboard
-- [ ] **Paso 3:** suite `test_estados.py`
-- [ ] **Paso 4:** *(verificar con datos ficticios + servidor)* commit + push
+- [x] **Paso 1:** propuesta en `docs/modulos/06-estados.md` + `[APROBADO]` (3 decisiones recomendadas)
+- [x] **Paso 2:** transiciones de estado + movimiento de inventario (en_uso/Kardex) + dashboard
+- [x] **Paso 2:** frontend `dashboard.html` + botón avanzar estado en carritos
+- [x] **Paso 3:** suite `test_estados.py` — 12/12 OK (total 68/68)
+- [ ] **Paso 4:** *(verificado: servidor + datos ficticios)* commit + push  ← *aquí estamos*
 
 > **Módulo 5 CERRADO (2026-06-26).** Siguiente: Módulo 6 (Estados y dashboard)
 > en Paso 1. Aquí entra el movimiento de inventario diferido (materiales a
