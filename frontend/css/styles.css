@@ -515,3 +515,17 @@ h1 {
 .linea-cierre .inp-devuelta {
   flex: 0 0 4.5rem;
 }
+
+/* ---- Módulo 8: Acceso móvil (QR) ---- */
+.acceso-movil {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.qr-img {
+  width: 200px;
+  max-width: 70vw;
+  height: auto;
+  margin: 0.5rem auto;
+  display: block;
+}

@@ -9,6 +9,7 @@ uvicorn[standard]==0.34.0 # Servidor ASGI para servir la API en la LAN
 pydantic==2.10.4          # Validación de datos y esquemas (incluido por FastAPI)
 python-multipart==0.0.20  # Manejo de formularios / multipart en endpoints
 PyJWT==2.10.1             # Tokens JWT para la sesión (Python puro, empaqueta limpio)
+segno==1.6.1              # Generación de QR (PWA acceso móvil; pura Python, empaqueta limpio)
 
 # --- Desarrollo / Pruebas (no requeridas en producción) ---
 pytest==9.1.1             # Framework de pruebas

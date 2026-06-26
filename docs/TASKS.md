@@ -30,11 +30,10 @@ _Última actualización: 2026-06-26_
 
 ## Tareas activas (Módulo 8 — PWA / offline / QR)
 
-- [ ] **Paso 1:** redactar propuesta en `docs/modulos/08-pwa.md`
-- [ ] **Paso 1:** recibir `[APROBADO]` del usuario  ← *aquí estamos*
-- [ ] **Paso 2:** service worker / caché offline + generación de QR a la IP local
-- [ ] **Paso 3:** pruebas (las que apliquen)
-- [ ] **Paso 4:** *(verificar con servidor)* commit + push
+- [x] **Paso 1:** propuesta en `docs/modulos/08-pwa.md` + `[APROBADO]` (3 decisiones recomendadas)
+- [x] **Paso 2:** SW app-shell + iconos + router de red (QR/segno) + UI «Acceso móvil»
+- [x] **Paso 3:** `test_red.py` — 3/3 OK (total 79/79) + verificación PWA en navegador
+- [ ] **Paso 4:** *(verificado: servidor + IP LAN + QR)* commit + push  ← *aquí estamos*
 
 > **Módulo 7 CERRADO (2026-06-26).** Con M1–M7 el **ciclo funcional está
 > completo**. Siguiente: Módulo 8 (PWA/offline/QR) en Paso 1; luego M9

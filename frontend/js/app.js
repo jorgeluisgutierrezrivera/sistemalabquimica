@@ -36,6 +36,22 @@ Auth.requireAuth();
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => Auth.logout());
   }
+
+  // Acceso móvil: URL de la LAN + QR (endpoints públicos /api/red/*).
+  try {
+    const resp = await fetch("/api/red/info");
+    if (resp.ok) {
+      const red = await resp.json();
+      const enlace = document.getElementById("qr-url");
+      const img = document.getElementById("qr-img");
+      enlace.textContent = red.url;
+      enlace.href = red.url;
+      img.src = "/api/red/qr.svg";
+      document.getElementById("acceso-movil").classList.remove("oculto");
+    }
+  } catch (err) {
+    /* sin bloqueo: el acceso móvil es opcional */
+  }
 })();
 
 // Registro del Service Worker (PWA). La estrategia se afinará por módulo.
